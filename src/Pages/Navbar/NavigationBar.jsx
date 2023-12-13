@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaRegUser } from "react-icons/fa6";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const NavigationBar = () => {
-
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
     const navItem = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/">Instructors</Link></li>
+        <li><Link to="/instructor">Instructors</Link></li>
         <li><Link to="/">Classes</Link></li>
         <li><Link to="/">Dashboard </Link></li>
 
@@ -38,16 +41,22 @@ const NavigationBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <div>
 
-                    <button className="mx-6">  <Link className="flex" to="/login">
-                        <FaRegUser className="mt-1 pr-1 " />Login
-                    </Link>
-                    </button>
+                        {
+                            !user ? <><button className="mx-6">  <Link className="flex" to="/login">
+                                <FaRegUser className="mt-1 pr-1 " />Login
+                            </Link>
+                            </button>
+                                <button className="mx-6">  <Link className="flex" to="/register">
+                                    <FaRegUser className="mt-1 pr-1 " />Register
+                                </Link>
+                                </button></>
+                                :
+                                <button onClick={logOut} className="mr-8 btn bg-red-600 text-white">Log Out</button>
 
-                    <button className="mx-6">  <Link className="flex" to="/register">
-                        <FaRegUser className="mt-1 pr-1 " />Register
-                    </Link>
-                    </button>
+                        }
+                    </div>
                     <div className="avatar online">
                         <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                             <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />

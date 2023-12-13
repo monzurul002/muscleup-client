@@ -1,9 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 const auth = getAuth(app)
-const AuthContext = createContext(null)
-const AuthProviders = (children) => {
+export const AuthContext = createContext(null)
+// eslint-disable-next-line react/prop-types
+const AuthProviders = ({ children }) => {
     const [user, setUser] = useState("")
     const [loading, setLoading] = useState(true)
     //new user create
@@ -15,7 +16,7 @@ const AuthProviders = (children) => {
     //user signin with email password
     const signInWithPassword = (email, password) => {
         setLoading(true)
-        return signInWithEmailAndPassword(email, password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
     //profile update of user
     const userProfileUpdate = (name) => {
@@ -26,13 +27,19 @@ const AuthProviders = (children) => {
     }
 
 
+    //logout 
+    const logOut = () => {
+        return signOut(auth)
+    }
+
 
     const authInfo = {
         user,
         loading,
         createUser,
         signInWithPassword,
-        userProfileUpdate
+        userProfileUpdate,
+        logOut
     }
 
     useEffect(() => {
@@ -48,6 +55,7 @@ const AuthProviders = (children) => {
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
+
         </AuthContext.Provider>
     )
 };

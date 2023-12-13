@@ -1,5 +1,23 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+    const { signInWithPassword, } = useContext(AuthContext);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+    const navigate = useNavigate()
+    const onSubmit = (data) => {
+
+        signInWithPassword(data.email, data.password)
+            .then(result => {
+                console.log(result);
+                navigate("/")
+            })
+    }
+
+
+
     return (
         <div className="bg-slate-300 w-full h-100">
             <div className="hero min-h-screen ">
@@ -9,18 +27,24 @@ const Login = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" required />
+                                <input type="email" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
                             </div>
+                            {errors.email?.type === "required" && (
+                                <p className="text-red-600" role="alert">Email is required</p>
+                            )}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" required />
+                                <input type="password" {...register("password", { required: true })} placeholder="password" className="input input-bordered" />
+                                {errors.password?.type === "required" && (
+                                    <p className="text-red-600" role="alert">Password can not be empty.</p>
+                                )}
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
