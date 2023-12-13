@@ -2,28 +2,18 @@ import { CiShoppingBasket } from "react-icons/ci";
 import "./PopularCourse.css"
 import { PiStudent } from "react-icons/pi";
 import { IoTimer } from "react-icons/io5";
-import { useEffect, useState } from "react";
 import bg from "../../../assets/banner-bg.jpg"
 import { Flip } from "react-reveal";
+import useCourses from "../../../hooks/useCourses";
 const PopularCourse = () => {
-    const [course, setCourse] = useState([])
-
-    useEffect(() => {
-        fetch('courses.json')
-            .then(res => res.json())
-            .then(data => {
-                return setCourse(data)
-            })
-    }, [])
-
+    const { courses } = useCourses()
     return (
-
         <Flip>
             <div style={{
                 backgroundImage: `url(${bg})`
             }} className="grid grid-cols-1 py-8 bg-black md:grid-cols-3">
                 {
-                    course && course.slice(0, 6).map(item => {
+                    courses && courses.slice(0, 6).map(item => {
                         return <div key={item.id} id="hero" className="hero " >
 
                             <div className="hero-content  border text-neutral-content">
