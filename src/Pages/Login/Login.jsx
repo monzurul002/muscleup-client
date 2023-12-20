@@ -1,12 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { GrFormViewHide } from "react-icons/gr";
+import { BiSolidHide } from "react-icons/bi";
 
 const Login = () => {
     const { signInWithPassword, } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [hide, setHide] = useState(false)
     const onSubmit = (data) => {
 
         signInWithPassword(data.email, data.password)
@@ -37,11 +40,19 @@ const Login = () => {
                             {errors.email?.type === "required" && (
                                 <p className="text-red-600" role="alert">Email is required</p>
                             )}
-                            <div className="form-control">
+                            <div className="form-control w-full ">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true })} placeholder="password" className="input input-bordered" />
+                                <div className="input-bordered input flex justify-center items-center">
+                                    <input type={!hide ? "password" : "text"} {...register("password", { required: true })} placeholder="password" className=" w-full" />
+                                    {
+                                        hide ? <BiSolidHide onClick={() => setHide(!hide)} className="text-xl" /> :
+                                            <GrFormViewHide onClick={() => setHide(!hide)} className="text-xl" />
+                                    }
+                                </div>
+
+
                                 {errors.password?.type === "required" && (
                                     <p className="text-red-600" role="alert">Password can not be empty.</p>
                                 )}

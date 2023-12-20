@@ -3,15 +3,16 @@ import logo from "../../assets/logo.png";
 import { FaRegUser } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
-
+import { GiShoppingBag } from "react-icons/gi";
+import useCart from "../../hooks/useCart";
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    const { carts } = useCart()
     const navItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructors</Link></li>
         <li><Link to="/classes">Classes</Link></li>
-        <li><Link to="/">Dashboard </Link></li>
+        <li><Link to="/dashboard">Dashboard </Link></li>
 
 
 
@@ -41,6 +42,10 @@ const NavigationBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <div className="mr-4 flex ">
+                        <p><GiShoppingBag className="text-2xl font-bold" /> </p>
+                        <span className="mt-[-12px] ms-[-5px] inline-block">{carts.length}</span>
+                    </div>
                     <div>
 
                         {

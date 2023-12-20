@@ -8,9 +8,9 @@
         "duration": "8 weeks",
         "imageLink": "https://e0.pxfuel.com/wallpapers/329/765/desktop-wallpaper-web-design-dark-developer.jpg",
         "shortDescription": "Learn the basics of JavaScript programming.",
-        "authorImage": "https://example.com/john-doe.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/5/367/267.jpg?hmac=WKxF1oqzdnGm0h6jKECDsqrUsD7gfB_NIpAeu2tzEeU",
         "enrolledStudents": 1200,
-        "availableSeat": 250
+        "availableSeat": 0
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "duration": "10 weeks",
         "imageLink": "https://e0.pxfuel.com/wallpapers/256/49/desktop-wallpaper-web-design-website-design.jpg",
         "shortDescription": "Master PHP for web development projects.",
-        "authorImage": "https://example.com/jane-smith.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/22/367/267.jpg?hmac=YbcBwpRX0XOz9EWoQod59ulBNUEf18kkyqFq0Mikv6c",
         "enrolledStudents": 800,
         "availableSeat": 250
     },
@@ -34,9 +34,9 @@
         "duration": "6 weeks",
         "imageLink": "https://cdn4.vectorstock.com/i/1000x1000/37/93/php-programming-and-coding-vector-30523793.jpg",
         "shortDescription": "Enhance your communication skills for the professional world.",
-        "authorImage": "https://example.com/emily-johnson.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/27/367/267.jpg?hmac=9cqOiwja76pSf6w1QA_VmGOjwfV0E3oc4YI6m5EOFvw",
         "enrolledStudents": 1500,
-        "availableSeat": 250
+        "availableSeat": 0
     },
     {
         "id": 3,
@@ -47,7 +47,7 @@
         "duration": "12 weeks",
         "imageLink": "https://www.collegeconsensus.com/wp-content/uploads/2022/04/server-ga7c7f9d34_1920-1024x358.jpg",
         "shortDescription": "Explore data science using Python and its libraries.",
-        "authorImage": "https://example.com/michael-rodriguez.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/48/367/267.jpg?hmac=fENUWb0yT2VgcvIXjwzBiAZ6QqdYG4rt2q8gok9VrZ0",
         "enrolledStudents": 1000,
         "availableSeat": 250
     },
@@ -60,7 +60,7 @@
         "duration": "8 weeks",
         "imageLink": "https://fiverr-res.cloudinary.com/t_main1,q_auto,f_auto/gigs/259899209/original/6fcd2a7c2e0bd3047eceb22a6de62a8eb5802c7c.jpg",
         "shortDescription": "Learn effective digital marketing strategies for business success.",
-        "authorImage": "https://example.com/sophia-martinez.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/27/367/267.jpg?hmac=9cqOiwja76pSf6w1QA_VmGOjwfV0E3oc4YI6m5EOFvw",
         "enrolledStudents": 1200,
         "availableSeat": 250
     },
@@ -73,7 +73,7 @@
         "duration": "10 weeks",
         "imageLink": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ7UUQ0IduqMbqnJsRA6GVkOx80y99YmAxExGPDJqsy12ge13o_ZvB_eNJ8xd6ZYur-t4&usqp=CAU",
         "shortDescription": "Become proficient in Java programming with hands-on projects.",
-        "authorImage": "https://example.com/alex-turner.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/48/367/267.jpg?hmac=fENUWb0yT2VgcvIXjwzBiAZ6QqdYG4rt2q8gok9VrZ0",
         "enrolledStudents": 900,
         "availableSeat": 250
     },
@@ -86,7 +86,7 @@
         "duration": "8 weeks",
         "imageLink": "https://cdn.pixabay.com/photo/2017/03/19/08/05/coding-2155784_640.png",
         "shortDescription": "Learn the essential skills of graphic design for creative projects.",
-        "authorImage": "https://example.com/olivia-anderson.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/129/367/267.jpg?hmac=mN9-fBaKpaTVGyPH4sqmd-mvkFgkp8CSP78L2ze5aVs",
         "enrolledStudents": 1100,
         "availableSeat": 250
     },
@@ -112,7 +112,7 @@
         "duration": "6 weeks",
         "imageLink": "https://cdn.pixabay.com/photo/2017/03/19/08/05/coding-2155784_640.png",
         "shortDescription": "Explore ethical considerations in the digital business landscape.",
-        "authorImage": "https://example.com/sophie-turner.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/91/367/267.jpg?hmac=sOnAhgv70PKwkdhi3-BBQUrCOeZbQ813Wl5JbORMtls",
         "enrolledStudents": 1300,
         "availableSeat": 250
     },
@@ -125,7 +125,7 @@
         "duration": "10 weeks",
         "imageLink": "https://media.licdn.com/dms/image/D4D12AQFagvFuPZMHZQ/article-cover_image-shrink_720_1280/0/1669809844035?e=2147483647&v=beta&t=_O7SZ5qg6u0YJ772R2ed9lW6cbUEz0ND6KmdsHA-2oE",
         "shortDescription": "Build interactive and dynamic user interfaces with React.js.",
-        "authorImage": "https://example.com/daniel-miller.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/91/367/267.jpg?hmac=sOnAhgv70PKwkdhi3-BBQUrCOeZbQ813Wl5JbORMtls",
         "enrolledStudents": 950,
         "availableSeat": 250
     },
@@ -138,7 +138,7 @@
         "duration": "8 weeks",
         "imageLink": "https://media.licdn.com/dms/image/D4D12AQFagvFuPZMHZQ/article-cover_image-shrink_720_1280/0/1669809844035?e=2147483647&v=beta&t=_O7SZ5qg6u0YJ772R2ed9lW6cbUEz0ND6KmdsHA-2oE",
         "shortDescription": "Learn the fundamentals of photography and composition.",
-        "authorImage": "https://example.com/ella-wilson.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/89/367/267.jpg?hmac=2YGroGI0tYEGCy4J9YrE1i09kvn6DMeM8KM4fcC-Xmo",
         "enrolledStudents": 1200,
         "availableSeat": 250
     },
@@ -151,7 +151,7 @@
         "duration": "12 weeks",
         "imageLink": "https://media.licdn.com/dms/image/D4D12AQFagvFuPZMHZQ/article-cover_image-shrink_720_1280/0/1669809844035?e=2147483647&v=beta&t=_O7SZ5qg6u0YJ772R2ed9lW6cbUEz0ND6KmdsHA-2oE",
         "shortDescription": "Understand the basics of cybersecurity and protect digital assets.",
-        "authorImage": "https://example.com/jack-taylor.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/65/367/267.jpg?hmac=p8wFFQ6NFmUAIc4oYrBxKvXTB_7w0LjGilS_K8YOjgE",
         "enrolledStudents": 900,
         "availableSeat": 250
     },
@@ -164,7 +164,7 @@
         "duration": "8 weeks",
         "imageLink": "https://cdn.pixabay.com/photo/2017/03/19/08/05/coding-2155784_640.png",
         "shortDescription": "Improve website visibility with essential SEO techniques.",
-        "authorImage": "https://example.com/sophie-davis.jpg",
+        "authorImage": "https://fastly.picsum.photos/id/89/367/267.jpg?hmac=2YGroGI0tYEGCy4J9YrE1i09kvn6DMeM8KM4fcC-Xmo",
         "enrolledStudents": 1100,
         "availableSeat": 250
     },
@@ -177,6 +177,6 @@
         "duration": "10 weeks",
         "imageLink": "https://cdn.pixabay.com/photo/2017/03/19/08/05/coding-2155784_640.png",
         "shortDescription": "Create cross-platform mobile apps with Flutter and Dart.",
-        "authorImage": "https://example.com"
+        "authorImage": "https://fastly.picsum.photos/id/65/367/267.jpg?hmac=p8wFFQ6NFmUAIc4oYrBxKvXTB_7w0LjGilS_K8YOjgE"
     }
 ]

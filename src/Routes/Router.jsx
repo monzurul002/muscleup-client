@@ -5,6 +5,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Instructor from "../Pages/Instructor/Instructor";
 import Classes from "../Pages/Classes/Classes";
+import Dashboard from "../layout/Dashboard.jsx";
+import MySelectedClass from "../Pages/MySelectedClass/MySelectedClass.jsx";
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,16 @@ const router = createBrowserRouter([
                 element: <Classes></Classes>
             }
         ]
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: "carts",
+                element: <MySelectedClass></MySelectedClass>
+            }]
+
     }
 ])
 export default router
