@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GrFormViewHide } from "react-icons/gr";
 import { BiSolidHide } from "react-icons/bi";
-
+// import loginIllustrator from "../../assets/loginIlustrator.jpg"
+import loginIllustrator from "../../assets/loginill.png"
 const Login = () => {
     const { signInWithPassword, } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -22,14 +23,14 @@ const Login = () => {
 
 
     return (
-        <div className="bg-slate-300 w-full h-100">
+        <div className="bg-slate-100 pt-20 w-full h-100">
+            <h1 className="text-5xl text-center font-bold">Login now!</h1>
             <div className="hero min-h-screen ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                    <div className="text-center mt-[-100px] w-full lg:text-left">
+                        <img className="w-full" src={loginIllustrator} alt="" />
                     </div>
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card shrink-0 w-1/2 mt-[-100px]  max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -56,9 +57,17 @@ const Login = () => {
                                 {errors.password?.type === "required" && (
                                     <p className="text-red-600" role="alert">Password can not be empty.</p>
                                 )}
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                                <div className="flex justify-between">
+                                    <label className="label">
+                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    </label>
+                                    <label className="label">
+                                        <Link to='/register' className="label-text-alt link link-hover text-primary font-bold">Register</Link>
+                                    </label>
+
+
+
+                                </div>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>

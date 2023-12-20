@@ -16,7 +16,7 @@ const Banner = () => {
     return (
         <div style={{
             backgroundImage: `url(${bg})`
-        }} className=" pt-32 pb-5 px-10 w-full flex flex-col md:flex-row lg:flex-row">
+        }} className=" pt-32 pb-5 px-10 w-full overflow-hidden flex flex-col md:flex-row lg:flex-row">
             <Slide left>
                 <div className="w-full md:w-1/2 ">
                     <h3 className="bg-slate-700 p-2  rounded-bl-lg inline-block font-semibold rounded-r-lg  opacity-100 "><span className="text-white">I AM A LIFE COACH.</span></h3>
