@@ -1,4 +1,4 @@
-.hero:hover button {
+.allBtn:hover button {
     background: linear-gradient(90deg, rgb(245, 241, 11), rgb(209, 34, 11));
 
 }

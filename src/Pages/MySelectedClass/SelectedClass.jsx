@@ -1,8 +1,13 @@
+import { AiOutlineDelete } from "react-icons/ai";
 
 const SelectedClass = ({ item, index }) => {
+
+    const deleteClass = () => {
+        console.log("object");
+    }
+
     return (
         <tr >
-
 
             <th>
                 {index + 1}
@@ -26,7 +31,7 @@ const SelectedClass = ({ item, index }) => {
             </td>
             <td>Purple</td>
             <th>
-                <button className="btn btn-ghost btn-xs">X</button>
+                <button onClick={deleteClass} className="btn hover:bg-red-500 btn-xs"><AiOutlineDelete className="text-xl  text-red-600 hover:text-white" /></button>
             </th>
 
 

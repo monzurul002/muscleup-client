@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import HeadShake from 'react-reveal/HeadShake';
 import registerImg from "../../assets/register.jpg"
+import SocialLogin from "../SocialLogin/SocialLogin";
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [error, setError] = useState("");
@@ -46,7 +47,7 @@ const Register = () => {
     return (
         <div className="bg-slate-50">
             <h1 className="text-3xl md:text-6xl pt-28 text-center   font-bold">Register now!</h1>
-            <div className="hero absolutept-16">
+            <div id="allBtn" className="hero absolutept-16">
                 <div className="hero-content  w-full  flex-col lg:flex-row-reverse">
                     <HeadShake>
                         <div className="text-center w-full md:w-1/2 lg:text-left">
@@ -96,14 +97,23 @@ const Register = () => {
                                     {
                                         error && <p className="text-red-500">{error}</p>
                                     }
-                                    <label className="label">
-                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                    </label>
+                                    <div className="flex justify-between">
+                                        <label className="label">
+                                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                        </label>
+                                        <label className="label">
+                                            Already have an account?
+                                            <Link to='/login' className="label-text-alt link link-hover text-primary font-bold">Login</Link>
+                                        </label>
+                                    </div>
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Register</button>
                                 </div>
-                            </form></div>
+                            </form>
+                            <SocialLogin></SocialLogin>
+                        </div>
+
                     </div>
                 </div>
             </div>

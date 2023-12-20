@@ -4,7 +4,7 @@ import SelectedClass from "./SelectedClass";
 const MySelectedClass = () => {
     const { carts } = useCart()
     return (
-        <div className="flex">
+        <div className="flex  md:flex-row">
             <div className="overflow-x-auto w-8/12 py-4 mx-auto ">
                 <table className="table">
                     {/* head */}
@@ -32,7 +32,7 @@ const MySelectedClass = () => {
 
                 </table>
             </div>
-            <div className="w-4/12 py-16  ">
+            <div className="w-2/3 md:w-4/12 py-6 md:py-16  ">
                 <div className="bg-slate-200 w-11/12 p-4">
                     <div className="flex justify-between"><h1 className="text-2xl">Total </h1>
                         <p className="text-3xl">$300</p>

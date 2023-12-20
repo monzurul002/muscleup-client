@@ -61,14 +61,14 @@ const NavigationBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="flex ">
+                    <div className="flex justify-center items-center ">
                         <p><GiShoppingBag className="text-2xl font-bold" /> </p>
                         <span className="mt-[-12px] ms-[-5px] inline-block">{carts.length}</span>
                     </div>
                     <div className="hidden lg:inline ">
 
                         {
-                            !user ? <>
+                            !user ? <div className="">
                                 <button className="mx-3">  <Link className="flex" to="/login">
                                     <FaRegUser className="mt-1 pr-1 " />Login
                                 </Link>
@@ -77,14 +77,18 @@ const NavigationBar = () => {
                                     <FaRegUser className="mt-1 pr-1 " />Register
                                 </Link>
                                 </button>
-                            </>
+                            </div>
                                 :
-                                <> <button onClick={logOut} className="mr-8 btn bg-red-600 text-white">Log Out</button>
-                                    <div className="avatar online">
+                                <div className="flex justify-center items-center"> <button onClick={logOut} className="mx-5 mb-2 btn bg-red-600 text-white">Log Out</button>
+
+                                    <div className="avatar online my-3 ">
                                         <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                            <img className="" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                                         </div>
-                                    </div></>
+                                    </div>
+
+                                </div>
+
                         }
                     </div>
 

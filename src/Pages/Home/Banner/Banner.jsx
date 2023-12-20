@@ -23,11 +23,11 @@ const Banner = () => {
                     <h1 className=" text-4xl md:text-6xl font-bold text-white "><span className="border-b-4 my-3 mr-4 border-indigo-500 inline-block  animate-bounce">Struggling </span> in <span className="border rounded-lg py-3 px-5 text-red-500">life?</span> <br />
                         I can <span className="border-b-4 border rounded-lg py-3 px-5 text-green-500	 border-secondary animate-pulse inline-block">help</span></h1>
                     <p className="text-xl my-3 text-white">Discover the simple 3 Steps that I Discovered to Hack Productivity.It works %100. Wanna transform your life?</p>
-                    <button className="bg-gradient-to-r from-yellow-500 from-10%  to-red-700     btn text-white font-thin py-1 my-16 px-12 text-xl"> Get Your Free Guide Now.</button>
+                    <button className="bg-gradient-to-r from-yellow-500 from-10%  to-red-700     btn text-white font-thin py-1 my-16 px-8 lg:px-12 text-xl"> Get Your Free Guide Now.</button>
                 </div>
             </Slide>
             <Slide right>
-                <div className="w-full md:w-1/2 mx-auto " >
+                <div className="w-full md:w-1/2  " >
                     <>
                         <Swiper
                             effect={'cards'}
@@ -47,7 +47,7 @@ const Banner = () => {
                             <SwiperSlide><img src={slider4} className="rounded-lg w-3/5" alt="" /></SwiperSlide>
 
                         </Swiper>
-                        <div className="absolute bottom-0 right-0 animate-bounce mx-10"><img src="https://edublink.co/images/shape-01.png" alt="" /></div>
+                        <div className="absolute bottom-0 right-0  mx-10"><img src="https://edublink.co/images/shape-01.png" alt="" /></div>
                     </>
                     <img className="ps-12 animate-bounce mt-5" src="https://edublink.co/images/shape-02.png" alt="" />
                 </div>
