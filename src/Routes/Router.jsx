@@ -7,6 +7,8 @@ import Instructor from "../Pages/Instructor/Instructor";
 import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../layout/Dashboard.jsx";
 import MySelectedClass from "../Pages/MySelectedClass/MySelectedClass.jsx";
+import Payment from "../Pages/Payment/Payment.jsx";
+import AddClass from "../Pages/AddClass/AddClass.jsx";
 
 
 const router = createBrowserRouter([
@@ -43,7 +45,16 @@ const router = createBrowserRouter([
             {
                 path: "carts",
                 element: <MySelectedClass></MySelectedClass>
-            }]
+            },
+            {
+                path: "checkout",
+                element: <Payment></Payment>
+            },
+            {
+                path: "addclass",
+                element: <AddClass></AddClass>
+            }
+        ]
 
     }
 ])

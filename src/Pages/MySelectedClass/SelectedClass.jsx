@@ -59,7 +59,7 @@ const SelectedClass = ({ item, index }) => {
                 </div>
             </td>
             <td>{item.instructorName}</td>
-            <td>Purple</td>
+            <td>{item.price}</td>
             <th>
                 <button onClick={deleteClass} className="btn hover:bg-red-500 btn-xs">
                     <AiOutlineDelete className="text-xl  text-red-600 hover:text-white" />

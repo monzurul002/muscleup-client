@@ -1,8 +1,13 @@
+import { Link } from "react-router-dom";
 import useCart from "../../hooks/useCart";
 import SelectedClass from "./SelectedClass";
 
 const MySelectedClass = () => {
-    const { carts } = useCart()
+    const { carts } = useCart();
+    const total = carts.reduce((sum, curr) => {
+        return sum + curr.price
+    }, 0)
+
     return (
         <div className="flex  md:flex-row">
             <div className="overflow-x-auto w-8/12 py-4 mx-auto ">
@@ -34,11 +39,12 @@ const MySelectedClass = () => {
             </div>
             <div className="w-2/3 md:w-4/12 py-6 md:py-16  ">
                 <div className="bg-slate-200 w-11/12 p-4">
-                    <div className="flex justify-between"><h1 className="text-2xl">Total </h1>
-                        <p className="text-3xl">$300</p>
+                    <div className="flex justify-between">
+                        <h1 className="text-2xl">Total </h1>
+                        <p className="text-3xl">${total.toFixed(2)}</p>
                     </div>
                     <p>Shipping:$0 </p>
-                    <button className="btn btn-primary w-full mt-8">Checkout</button>
+                    <Link to="/dashboard/checkout"> <button className="btn btn-primary w-full mt-8">Checkout</button></Link>
                 </div>
             </div>
         </div>
