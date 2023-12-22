@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GrFormViewHide } from "react-icons/gr";
 import { BiSolidHide } from "react-icons/bi";
 // import loginIllustrator from "../../assets/loginIlustrator.jpg"
@@ -10,13 +10,14 @@ const Login = () => {
     const { signInWithPassword, } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const navigate = useNavigate();
-    const [hide, setHide] = useState(false)
+    const [hide, setHide] = useState(false);
+    const location = useLocation()
     const onSubmit = (data) => {
 
         signInWithPassword(data.email, data.password)
             .then(result => {
                 console.log(result);
-                navigate("/")
+                navigate(location.state.from?.pathname || "/")
             })
     }
 

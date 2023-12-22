@@ -2,31 +2,52 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [image, setImage] = useState(null)
-    const onSubmit = (data) => {
-        const classInfo = {
-            className: data.className,
-            instructorName: user.displayName,
-            instructorEmail: user.email,
-            availableSeat: data.availableSeat,
-            price: data.price
+    let objectUrl
+    if (image) {
+        objectUrl = URL.createObjectURL(image)
+    }
+    const onSubmit = (data, e) => {
+        const className = data.className;
+        const instructorName = user.displayName;
+        const instructorEmail = user.email;
+        const availableSeat = data.availableSeat;
+        const price = data.price
 
-        }
-        axios.post('http://localhost:5000/classes', classInfo)
+        const formData = new FormData()
+        formData.append("image", image);
+        formData.append("className", className);
+        formData.append("instructorName", instructorName);
+        formData.append("instructorEmail", instructorEmail);
+        formData.append("availableSeat", availableSeat);
+        formData.append("price", price);
+
+        axios.post('http://localhost:5000/classes', formData)
             .then(res => {
-                console.log(res);
+                if (res.data.insertedId) {
+                    e.target.reset()
+                    return Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Classes has been added",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+
             })
     }
-    console.log(image);
+
 
     return (
         <div className="p-12">
             <h1 className="text-3xl text-indigo-600 font-bold">Add Class</h1>
-            <form onSubmit={handleSubmit(onSubmit)} >
+            <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data" >
 
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div>
@@ -80,7 +101,11 @@ const AddClass = () => {
                             <p className="text-red-500" role="alert ">Price is required</p>
                         )}
 
-                        <input type="file" onChange={(e) => setImage(e.target.files[0])} className="file-input file-input-bordered file-input-success mt-5 w-full max-w-xs" /> <br />
+
+                        {
+                            image && <img className="rounded-full w-1/3 " src={objectUrl} alt="" />
+                        }
+                        <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} className="file-input file-input-bordered file-input-success mt-5 w-full max-w-xs" /> <br />
 
                     </div>
 

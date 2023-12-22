@@ -9,6 +9,7 @@ import Dashboard from "../layout/Dashboard.jsx";
 import MySelectedClass from "../Pages/MySelectedClass/MySelectedClass.jsx";
 import Payment from "../Pages/Payment/Payment.jsx";
 import AddClass from "../Pages/AddClass/AddClass.jsx";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
                 path: "carts",
