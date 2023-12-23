@@ -36,6 +36,7 @@ const AuthProviders = ({ children }) => {
 
     //logout 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -55,26 +56,9 @@ const AuthProviders = ({ children }) => {
             setUser(currUser);
             setLoading(false);
 
-            // const res = await axios.post("http://localhost:5000/users", { email: currUser?.email })
-            // console.log(res.data);
-
-
-            if (currUser) {
-                fetch("http://localhost:5000/users", {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json"
-                    },
-                    body: JSON.stringify({ email: currUser?.email })
-                }).then(res => res.json())
-                    .then(data => {
-                        setLoading(false)
-
-                    })
-            }
         })
         return () => {
-
+            setLoading(false)
             return unsubscribe()
         }
     }, [])

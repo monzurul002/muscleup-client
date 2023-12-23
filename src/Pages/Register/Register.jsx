@@ -22,14 +22,29 @@ const Register = () => {
                 if (user) {
                     userProfileUpdate(data.name)
                         .then(result => {
-                            navigate("/")
-                            return Swal.fire({
-                                position: "top-end",
-                                icon: "success",
-                                title: `Welcome ${user?.displayName}`,
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
+                            const savedUser = { name: data.name, email: data.email }
+                            fetch("http://localhost:5000/users", {
+                                method: "POST",
+                                headers: {
+                                    "content-type": "application/json"
+                                },
+                                body: JSON.stringify(savedUser)
+                            }).then(res => res.json())
+                                .then(data => {
+                                    if (data.insertedId) {
+                                        navigate("/")
+                                        return Swal.fire({
+                                            position: "top-end",
+                                            icon: "success",
+                                            title: `Welcome ${user?.displayName}`,
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        });
+                                    }
+
+                                })
+
+
 
                         })
 
