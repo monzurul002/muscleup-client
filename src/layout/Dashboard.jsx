@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
+import Loading from "../Pages/Loading/Loading";
 
 const Dashboard = () => {
-    const userType = "admin"
+    const { loading } = useContext(AuthContext)
+    if (loading) {
+        return <Loading></Loading>
+    }
+    const userType = "instructor";
+    // const userType = "admin";
+    const admin = true;
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -24,6 +33,28 @@ const Dashboard = () => {
                         ) : (
                             // Render these for admins and instructors
                             <>
+                                {userType === "instructor" && (
+                                    <><li><Link to="/dashboard/addclass">Add a Class</Link></li>
+                                        <li><Link to="/dashboard/myclass">My Classes</Link></li></>
+                                )}
+                                {admin && (
+                                    <><li><Link to="/dashboard/manageclass">Manage class</Link></li>
+                                        <li><Link to="/dashboard/manageusers">Manage Users</Link></li></>
+
+                                )}
+                            </>
+                        )
+                    }
+                    {/* {
+                        userType === "student" ? (
+                            // Render these for students
+                            <>
+                                <li><Link to="/dashboard/courses">My Courses</Link></li>
+                                <li><Link to="/dashboard/profile">My Profile</Link></li>
+                            </>
+                        ) : (
+                            // Render these for admins and instructors
+                            <>
                                 <li><Link to="/dashboard/addclass">Add a Class</Link></li>
                                 {userType === "instructor" && (
                                     <li><Link to="/dashboard/myclass">My Classes</Link></li>
@@ -33,7 +64,7 @@ const Dashboard = () => {
                                 )}
                             </>
                         )
-                    }
+                    } */}
 
 
                     {/* {

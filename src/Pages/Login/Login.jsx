@@ -6,6 +6,7 @@ import { GrFormViewHide } from "react-icons/gr";
 import { BiSolidHide } from "react-icons/bi";
 // import loginIllustrator from "../../assets/loginIlustrator.jpg"
 import loginIllustrator from "../../assets/loginill.png"
+import axios from "axios";
 const Login = () => {
     const { signInWithPassword, } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -16,8 +17,20 @@ const Login = () => {
 
         signInWithPassword(data.email, data.password)
             .then(result => {
-                console.log(result);
-                navigate(location.state.from?.pathname || "/")
+                console.log(result.user.email);
+                // fetch("http://localhost:5000/users", {
+                //     method: "POST",
+                //     headers: {
+                //         "content-type": "application/json"
+                //     },
+                //     body: JSON.stringify(result.user.email)
+                // }).then(res => res.json())
+                //     .then(data => {
+                //         console.log(data);
+                //     })
+
+
+                navigate(location.state?.from?.pathname || "/")
             })
     }
 

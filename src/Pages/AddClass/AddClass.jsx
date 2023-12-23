@@ -31,6 +31,7 @@ const AddClass = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     e.target.reset()
+                    setImage(null)
                     return Swal.fire({
                         position: "top-end",
                         icon: "success",

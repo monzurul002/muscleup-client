@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import axios from "axios";
+
 const auth = getAuth(app)
 export const AuthContext = createContext(null)
 // eslint-disable-next-line react/prop-types
@@ -49,11 +51,30 @@ const AuthProviders = ({ children }) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currUser) => {
+        const unsubscribe = onAuthStateChanged(auth, async (currUser) => {
             setUser(currUser);
-            setLoading(false)
+            setLoading(false);
+
+            // const res = await axios.post("http://localhost:5000/users", { email: currUser?.email })
+            // console.log(res.data);
+
+
+            if (currUser) {
+                fetch("http://localhost:5000/users", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({ email: currUser?.email })
+                }).then(res => res.json())
+                    .then(data => {
+                        setLoading(false)
+
+                    })
+            }
         })
         return () => {
+
             return unsubscribe()
         }
     }, [])

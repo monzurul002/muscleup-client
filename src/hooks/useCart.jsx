@@ -12,7 +12,7 @@ const useCart = () => {
             return res.data
         }
     })
-    console.log(carts);
+
     // const [carts, setCarts] = useState([])
     // useEffect(() => {
     // axios.get("http://localhost:5000/carts")

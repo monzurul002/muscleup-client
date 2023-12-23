@@ -10,6 +10,9 @@ import MySelectedClass from "../Pages/MySelectedClass/MySelectedClass.jsx";
 import Payment from "../Pages/Payment/Payment.jsx";
 import AddClass from "../Pages/AddClass/AddClass.jsx";
 import PrivateRoute from "./PrivateRoute.jsx";
+import MyClass from "../Pages/Instructor/MyClass.jsx";
+import ManageClass from "../Pages/AdminDashboard/ManageClass.jsx";
+import ManageUsers from "../Pages/AdminDashboard/ManageUsers.jsx";
 
 
 const router = createBrowserRouter([
@@ -50,6 +53,18 @@ const router = createBrowserRouter([
             {
                 path: "checkout",
                 element: <Payment></Payment>
+            },
+            {
+                path: "myclass",
+                element: <MyClass></MyClass>
+            },
+            {
+                path: "manageclass",
+                element: <ManageClass></ManageClass>
+            },
+            {
+                path: "manageusers",
+                element: <ManageUsers></ManageUsers>
             },
             {
                 path: "addclass",
