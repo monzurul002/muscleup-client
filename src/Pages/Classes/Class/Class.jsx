@@ -10,6 +10,7 @@ import axios from "axios";
 const Class = ({ course }) => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate()
+    course.email = user?.email;
     const handleAddToCart = () => {
 
         if (!user) {
@@ -22,13 +23,11 @@ const Class = ({ course }) => {
                     return toast.success("Item has been added to cart.")
                 }
             })
-
-
     }
     return (
         <div key={course.id} className={`card w-96 ${course.availableSeat == 0 ? "bg-red-500 text-white" : "bg-base-100"}  shadow-xl`}>
             <figure className="px-10 pt-10">
-                <img src="https://rainbowit.net/html/histudy/assets/images/course/course-online-05.jpg" alt="Shoes" className="rounded-xl" />
+                <img style={{ width: "300px", height: "200px" }} src={course.imageLink} alt="Shoes" className="rounded-xl" />
             </figure>
             <div className={`card-body ps-12 `}>
                 <h2 className="card-title">{course.courseName}</h2>

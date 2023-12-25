@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { GiShoppingBag } from "react-icons/gi";
 import useCart from "../../hooks/useCart";
+
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const { carts } = useCart()
@@ -12,7 +13,7 @@ const NavigationBar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructors</Link></li>
         <li><Link to="/classes">Classes</Link></li>
-        <li><Link to="/dashboard/myclass">Dashboard </Link></li>
+        <li><Link to="/dashboard/admindashboard">Dashboard </Link></li>
 
 
 

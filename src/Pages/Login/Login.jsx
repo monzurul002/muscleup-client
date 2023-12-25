@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GrFormViewHide } from "react-icons/gr";
 import { BiSolidHide } from "react-icons/bi";
-// import loginIllustrator from "../../assets/loginIlustrator.jpg"
+
 import loginIllustrator from "../../assets/loginill.png"
-import axios from "axios";
+
 const Login = () => {
     const { signInWithPassword, } = useContext(AuthContext);
     const { register, formState: { errors }, handleSubmit } = useForm();

@@ -52,13 +52,29 @@ const AuthProviders = ({ children }) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (currUser) => {
-            setUser(currUser);
+        const unsubscribe = onAuthStateChanged(auth, (currUser) => {
             setLoading(false);
+            setUser(currUser);
+            if (currUser) {
+                fetch("http://localhost:5000/jwt", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json"
+                    },
+                    body: JSON.stringify({ email: currUser.email })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem("token", data.token)
+                    })
+            }
+            else {
+                localStorage.removeItem("token")
+            }
 
         })
         return () => {
-            setLoading(false)
+
             return unsubscribe()
         }
     }, [])

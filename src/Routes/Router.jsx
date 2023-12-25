@@ -13,6 +13,7 @@ import PrivateRoute from "./PrivateRoute.jsx";
 import MyClass from "../Pages/Instructor/MyClass.jsx";
 import ManageClass from "../Pages/AdminDashboard/ManageClass.jsx";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers.jsx";
+import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard.jsx";
 
 
 const router = createBrowserRouter([
@@ -44,10 +45,11 @@ const router = createBrowserRouter([
     },
     {
         path: "dashboard",
+
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
             {
-                path: "carts",
+                path: "courses",
                 element: <MySelectedClass></MySelectedClass>
             },
             {
@@ -69,6 +71,10 @@ const router = createBrowserRouter([
             {
                 path: "addclass",
                 element: <AddClass></AddClass>
+            },
+            {
+                path: "admindashboard",
+                element: <AdminDashboard></AdminDashboard>
             }
         ]
 

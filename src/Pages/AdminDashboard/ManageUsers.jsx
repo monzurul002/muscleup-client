@@ -4,15 +4,10 @@ import { useState } from "react";
 import { FcReading } from "react-icons/fc";
 import { RiAdminFill } from "react-icons/ri";
 import Swal from "sweetalert2";
+import useUsers from "../../hooks/useUsers";
 
 const ManageUsers = () => {
-    const { data: users = [], loading, refetch } = useQuery({
-        queryKey: ["users"], queryFn: async () => {
-            const res = await axios.get("http://localhost:5000/users");
-            return res.data;
-        }
-    })
-
+    const { users, refetch } = useUsers()
     const makeNewRole = async (id, role) => {
 
         Swal.fire({
@@ -90,10 +85,10 @@ const ManageUsers = () => {
                                     </td>
                                     <td> {user.email}</td>
                                     <th>
-                                        <button className="btn hover:bg-blue-950		"><FcReading className="text-2xl" /></button>
+                                        <button onClick={() => makeNewRole(user._id, "instructor")} className={`rounded-lg p-3 ${user.role === "instructor" ? " bg-red-600" : "bg-slate-100"} hover:bg-blue-950 `} disabled={user.role === "instructor"}><FcReading className="text-2xl" /></button>
                                     </th>
                                     <th>
-                                        <button onClick={() => makeNewRole(user._id, "admin")} className={` hover:bg-rose-600 hover:text-white p-3 ${user.role === "admin" && "bg-red-600"}`} disabled={user.role === "admin"}><RiAdminFill className="text-2xl text-success hover:text-white  " /></button>
+                                        <button onClick={() => makeNewRole(user._id, "admin")} className={` rounded-lg hover:bg-rose-600 hover:text-white p-3 ${user.role === "admin" && "bg-red-600"}`} disabled={user.role === "admin"}><RiAdminFill className="text-2xl text-success hover:text-white  " /></button>
                                     </th>
                                 </tr>
                             })
