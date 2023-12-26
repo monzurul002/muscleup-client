@@ -18,7 +18,7 @@ const Login = () => {
         signInWithPassword(data.email, data.password)
             .then(result => {
                 console.log(result.user.email);
-                // fetch("http://localhost:5000/users", {
+                // fetch("https://muscleup-server.vercel.app/users", {
                 //     method: "POST",
                 //     headers: {
                 //         "content-type": "application/json"
