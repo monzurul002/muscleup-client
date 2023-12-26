@@ -1,0 +1,83 @@
+[
+    {
+        "instructorName": "John Smith",
+        "designation": "Senior Instructor",
+        "totalCourses": 20,
+        "rating": 4.8,
+        "joinDate": "2020-05-15",
+        "description": "Passionate educator with expertise in computer science. Dedicated to making complex concepts accessible through engaging courses. Join my classes for an enriching learning experience!",
+        "image": "https://rainbowit.net/html/histudy/assets/images/course/course-online-01.jpg"
+    },
+    {
+        "instructorName": "Alice Johnson",
+        "designation": "Lead Developer",
+        "totalCourses": 15,
+        "rating": 4.5,
+        "joinDate": "2019-11-20",
+        "description": "Experienced developer specializing in web technologies. Join my courses to master the latest frameworks and build cutting-edge web applications.",
+        "image": "https://rainbowit.net/html/histudy/assets/images/course/course-online-02.jpg"
+    },
+    {
+        "instructorName": "David Williams",
+        "designation": "Data Science Expert",
+        "totalCourses": 12,
+        "rating": 4.9,
+        "joinDate": "2021-02-10",
+        "description": "Data scientist with a passion for uncovering insights from data. Explore the world of data science with me and enhance your analytical skills.",
+        "image": "https://i.ibb.co/4fctd7V/Screenshot-4.png"
+    },
+    {
+        "instructorName": "Sophie Martinez",
+        "designation": "Graphic Design Guru",
+        "totalCourses": 18,
+        "rating": 4.7,
+        "joinDate": "2018-07-05",
+        "description": "Creative designer with a love for aesthetics. Join my graphic design courses to unleash your creativity and produce stunning visual content.",
+        "image": "https://i.ibb.co/SrGJJZk/Screenshot-5.png"
+    },
+    {
+        "instructorName": "Michael Brown",
+        "designation": "Language Arts Specialist",
+        "totalCourses": 25,
+        "rating": 4.6,
+        "joinDate": "2017-04-12",
+        "description": "English language enthusiast dedicated to enhancing your language skills. Join my courses to improve your writing, reading, and communication abilities.",
+        "image": "https://i.ibb.co/FBZc1yW/4.jpg"
+    },
+    {
+        "instructorName": "Elena Rodriguez",
+        "designation": "Fitness Trainer",
+        "totalCourses": 30,
+        "rating": 4.9,
+        "joinDate": "2019-09-30",
+        "description": "Certified fitness coach passionate about health and wellness. Join my fitness programs to achieve your fitness goals and live a healthier life.",
+        "image": "https://i.ibb.co/dK6fPRj/dp1-png-removebg-preview.png"
+    },
+    {
+        "instructorName": "Daniel Lee",
+        "designation": "Finance Expert",
+        "totalCourses": 22,
+        "rating": 4.8,
+        "joinDate": "2020-12-03",
+        "description": "Finance professional with extensive knowledge in investment strategies and financial planning. Join my courses to master the art of managing money effectively.",
+        "image": "daniel_lee.jpg"
+    },
+    {
+        "instructorName": "Mia Taylor",
+        "designation": "Photography Mentor",
+        "totalCourses": 10,
+        "rating": 4.6,
+        "joinDate": "2022-05-18",
+        "description": "Passionate photographer dedicated to helping you capture moments with skill and creativity. Join my photography courses to elevate your photography skills.",
+        "image": "https://i.ibb.co/Jx28GLW/doc1.jpg"
+    },
+    {
+        "instructorName": "Ryan Clark",
+        "designation": "Marketing Strategist",
+        "totalCourses": 18,
+        "rating": 4.7,
+        "joinDate": "2018-10-22",
+        "description": "Experienced marketing professional with a focus on digital strategies. Join my courses to learn the latest marketing trends and boost your brand presence.",
+        "image": "https://rainbowit.net/html/histudy/assets/images/course/course-online-02.jpg"
+    }
+]

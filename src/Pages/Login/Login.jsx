@@ -17,7 +17,7 @@ const Login = () => {
 
         signInWithPassword(data.email, data.password)
             .then(result => {
-                console.log(result.user.email);
+
                 // fetch("https://muscleup-server.vercel.app/users", {
                 //     method: "POST",
                 //     headers: {
@@ -44,7 +44,7 @@ const Login = () => {
                     <div className="text-center mt-[-100px] w-full lg:text-left">
                         <img className="w-full" src={loginIllustrator} alt="" />
                     </div>
-                    <div className="card shrink-0 w-1/2 mt-[-100px]  max-w-sm shadow-2xl bg-base-100">
+                    <div className="card shrink-0  w-full md:w-1/2 mt-[-100px]  max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <div className="form-control">
                                 <label className="label">

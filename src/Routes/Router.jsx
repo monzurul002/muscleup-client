@@ -14,6 +14,7 @@ import MyClass from "../Pages/Instructor/MyClass.jsx";
 import ManageClass from "../Pages/AdminDashboard/ManageClass.jsx";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers.jsx";
 import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard.jsx";
+import InstructorDetails from "../Pages/Instructor/InstructorDetails.jsx";
 
 
 const router = createBrowserRouter([
@@ -38,9 +39,13 @@ const router = createBrowserRouter([
                 element: <Instructor></Instructor>
             },
             {
-                path: "/classes",
+                path: "/courses",
                 element: <Classes></Classes>
-            }
+            },
+            {
+                path: "/instructor/:id",
+                element: <InstructorDetails></InstructorDetails>
+            },
         ]
     },
     {

@@ -12,7 +12,7 @@ const NavigationBar = () => {
     const navItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructors</Link></li>
-        <li><Link to="/classes">Classes</Link></li>
+        <li><Link to="/courses">Courses</Link></li>
         <li><Link to="/dashboard/admindashboard">Dashboard </Link></li>
 
 
@@ -20,7 +20,7 @@ const NavigationBar = () => {
     </>
     return (
         // <nav className="w-11/12 z-30 fixed bg-opacity-75 top-0 max-w-screen-lg text-white bg-black mx-auto">
-        <nav className=" z-30 bg-opacity-10 bg-black w-full  px-4 text-white fixed ">
+        <nav className=" z-30 bg-opacity-40 bg-black w-full  px-4 text-white fixed ">
             <div className="navbar ">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -43,12 +43,15 @@ const NavigationBar = () => {
                                     </button>
                                 </>
                                     :
-                                    <> <button onClick={logOut} className="mr-8 btn bg-red-600 text-white">Log Out</button>
+                                    <>
+                                        <button onClick={logOut} className="mr-8 btn bg-red-600 text-white">Log Out</button>
                                         <div className="avatar online">
                                             <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                                 <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                                             </div>
-                                        </div></>
+                                        </div>
+
+                                    </>
                             }
                         </ul>
                     </div>
@@ -61,8 +64,8 @@ const NavigationBar = () => {
                         {navItem}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <div className="flex justify-center items-center ">
+                <div className="navbar-end ">
+                    <div className="flex justify-center items-center  mr-2">
                         <p><GiShoppingBag className="text-2xl font-bold" /> </p>
                         <span className="mt-[-12px] ms-[-5px] inline-block">{carts.length}</span>
                     </div>
@@ -70,24 +73,32 @@ const NavigationBar = () => {
 
                         {
                             !user ? <div className="">
-                                <button className="mx-3">  <Link className="flex" to="/login">
-                                    <FaRegUser className="mt-1 pr-1 " />Login
+                                <button className="mx-3 ">  <Link className="flex justify-center items-center" to="/login">
+                                    <FaRegUser className=" pr-1 " />Login
                                 </Link>
                                 </button>
-                                <button className="mx-3">  <Link className="flex" to="/register">
-                                    <FaRegUser className="mt-1 pr-1 " />Register
+                                <button className="mx-3 btn btn-success text-white">  <Link className="flex" to="/register">
+                                    Register
                                 </Link>
                                 </button>
                             </div>
                                 :
-                                <div className="flex justify-center items-center"> <button onClick={logOut} className="mx-5 mb-2 btn bg-red-600 text-white">Log Out</button>
-
-                                    <div className="avatar online my-3 ">
-                                        <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                                            <img className="" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <div className="dropdown   dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle  online avatar ring  ring-offset-2">
+                                        <div className="w-10 rounded-full">
+                                            <img alt="user" src="https://www.darveys.com/blog/wp-content/uploads/2022/06/featured-image.jpg" />
                                         </div>
                                     </div>
-
+                                    <ul tabIndex={0} className="mt-3 z-[1] p-1 shadow menu menu-sm dropdown-content text-slate-600 bg-base-200 rounded-box w-52">
+                                        <li className="py-1">
+                                            <a className="justify-between">
+                                                Profile
+                                                <span className="badge">New</span>
+                                            </a>
+                                        </li>
+                                        <li className="p-1"><a>Settings</a></li>
+                                        <li><button onClick={logOut} className="mx-2 mb-2 btn bg-red-600 py-3 hover:bg-red-700 text-white">Log Out</button></li>
+                                    </ul>
                                 </div>
 
                         }

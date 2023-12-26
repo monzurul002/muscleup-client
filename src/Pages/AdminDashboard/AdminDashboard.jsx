@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const AdminDashboard = () => {
     const [value, onChange] = useState(new Date());
     let date = new Date();
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     return (
         <div className="bg-base-200 px-2 md:px-1">
 
@@ -31,7 +31,7 @@ const AdminDashboard = () => {
                             <span className="badge badge-xs badge-primary indicator-item"></span>
                         </div>
                     </button>
-                    <div className="dropdown dropdown-end">
+                    {/* <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
                                 <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -46,6 +46,23 @@ const AdminDashboard = () => {
                             </li>
                             <li><a>Settings</a></li>
                             <li><a>Logout</a></li>
+                        </ul>
+                    </div> */}
+                    <div className="dropdown w-16  dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle  online avatar ring  ring-offset-2">
+                            <div className="w-10 rounded-full">
+                                <img alt="user" src="https://www.darveys.com/blog/wp-content/uploads/2022/06/featured-image.jpg" />
+                            </div>
+                        </div>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-1 shadow menu menu-sm dropdown-content text-slate-600 bg-base-100 rounded-box w-52">
+                            <li className="py-1">
+                                <a className="justify-between">
+                                    Profile
+                                    <span className="badge">New</span>
+                                </a>
+                            </li>
+                            <li className="p-1"><a>Settings</a></li>
+                            <li><button onClick={logOut} className="mx-2 mb-2 btn bg-red-600 py-3 hover:bg-red-700 text-white">Log Out</button></li>
                         </ul>
                     </div>
                 </div>

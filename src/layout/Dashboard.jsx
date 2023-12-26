@@ -29,7 +29,7 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                <ul className="menu p-4 w-64 min-h-full font-bold text-white bg-gradient-to-b from-[#9263de]  to-blue-400  ">
+                <ul className="menu p-4 w-64 min-h-full font-bold text-white bg-gradient-to-b from-[#9263de]  to-blue-500  ">
 
                     <li><Link to="/dashboard/admindashboard"> <MdDashboard className="text-xl" />
                         Dashboard</Link></li>
