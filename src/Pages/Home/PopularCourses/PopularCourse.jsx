@@ -16,7 +16,7 @@ const PopularCourse = () => {
                     <div className="col-span-7">
                         <div style={{
                             // backgroundImage: `url(${bg})`, backgroundRepeat: "no-repeat"
-                        }} className="grid grid-cols-1 py-3  md:grid-cols-4 px-4 md:px-4">
+                        }} className="grid grid-cols-1 py-3  md:grid-cols-3 px-5 md:px-4">
                             {
                                 courses && courses.slice(0, 8).map(item => {
                                     return <div key={item?._id} className="card card-compact mx-1 md:mx-3 my-3 bg-base-100 shadow-xl">
@@ -50,6 +50,7 @@ const PopularCourse = () => {
                     </div>
                     <div className="col-span-1 hidden md:block mt-7">
                         <img className="animate-pulse" src={ad} alt="col-span-1" />
+                        <h1 className="text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem ab nam, reprehenderit dolores nemo ullam repudiandae magnam quidem? Consectetur?</h1>
                     </div>
                 </div>
             </div>
