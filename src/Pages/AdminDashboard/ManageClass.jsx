@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
 import Swal from "sweetalert2";
 
 const ManageClass = () => {
@@ -14,7 +13,7 @@ const ManageClass = () => {
             return res.data;
         }
     })
-    console.log(classes);
+
     const sendFeedback = (e, id) => {
         e.preventDefault()
         const feedback = e.target.feedback.value;
@@ -79,6 +78,36 @@ const ManageClass = () => {
         }
     }
 
+    const deleteClass = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/classes/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            return Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
+            }
+        });
+
+
+
+    }
+
     return (
         <div className="bg-base-200 p-5">
             <div className="flex justify-between border-b-4 border-blue-400">
@@ -98,6 +127,7 @@ const ManageClass = () => {
                                     <p className="">Price: $ {classItem.price}</p>
                                     <p>Available Seat: {classItem.
                                         availableSeat}</p>
+                                    <button onClick={() => deleteClass(classItem?._id)} className="btn btn-xs mt-1 bg-red-600 text-white hover:bg-warning">Delete</button>
 
                                 </div>
                             </div>

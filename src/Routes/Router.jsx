@@ -15,6 +15,9 @@ import ManageClass from "../Pages/AdminDashboard/ManageClass.jsx";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers.jsx";
 import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard.jsx";
 import InstructorDetails from "../Pages/Instructor/InstructorDetails.jsx";
+import ClassDetails from "../Pages/ClassDetails/ClassDetails.jsx";
+import MyProfile from "../Pages/MyProfile/MyProfile.jsx";
+import StudentDashboard from "../Pages/StudentDashboard/StudentDashboard.jsx";
 
 
 const router = createBrowserRouter([
@@ -41,6 +44,10 @@ const router = createBrowserRouter([
             {
                 path: "/courses",
                 element: <Classes></Classes>
+            },
+            {
+                path: "/classes/:id",
+                element: <ClassDetails></ClassDetails>
             },
             {
                 path: "/instructor/:id",
@@ -80,6 +87,15 @@ const router = createBrowserRouter([
             {
                 path: "admindashboard",
                 element: <AdminDashboard></AdminDashboard>
+            },
+            {
+                path: "studentdashboard",
+                element: <StudentDashboard></StudentDashboard>
+            },
+
+            {
+                path: "myprofile",
+                element: <MyProfile></MyProfile>
             }
         ]
 

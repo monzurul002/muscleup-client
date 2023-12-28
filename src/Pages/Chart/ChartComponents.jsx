@@ -1,3 +1,4 @@
+import { FaCircle } from 'react-icons/fa6';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -42,21 +43,40 @@ const data = [
 
 const ChartComponents = () => {
     return (
-        <div className='mt-5'>
-            <h3 className='p-2 font-bold text-center text-xl text-cyan-900'>Progress Checking</h3>
+        <div className='mt-5 bg-base-100 rounded-lg'>
+            <div className='flex justify-between  p-4'>
+                <h3 className='p-2 font-bold text-center  text-cyan-900'>Students Performance</h3>
+                <div >
+                    <div className='flex justify-center items-center'>
+                        <FaCircle className='text-xs text-indigo-800 inline' />
+                        <p className='text-sm'>This Weak</p>
+
+                    </div>
+                    <p className='text-xm font-bold ml-2 mb-2 '>1258</p>
+                </div>
+                <div >
+                    <div className='flex justify-center items-center'>
+                        <FaCircle className='text-xs text-warning inline' />
+                        <p className='text-sm ml-1'>Last Weak</p>
+
+                    </div>
+                    <p className='text-xm font-bold ml-2 mb-2 '>1258</p>
+                </div>
+
+            </div>
             <LineChart
-                width={370}
+                width={420}
                 height={300}
                 data={data}
 
                 margin={{
                     top: 10,
-                    right: 30,
+                    right: 5,
                     left: 10,
                     bottom: 5,
                 }}
             >
-                <CartesianGrid strokeDasharray="3 3" />
+                <CartesianGrid strokeDasharray="3 3" className="" />
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />

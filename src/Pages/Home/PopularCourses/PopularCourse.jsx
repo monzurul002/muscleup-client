@@ -16,11 +16,11 @@ const PopularCourse = () => {
                     <div className="col-span-7">
                         <div style={{
                             // backgroundImage: `url(${bg})`, backgroundRepeat: "no-repeat"
-                        }} className="grid grid-cols-1 py-3  md:grid-cols-3 px-5 md:px-4">
+                        }} className="grid grid-cols-1 py-3  md:grid-cols-3 px-5 md:px-14">
                             {
-                                courses && courses.slice(0, 8).map(item => {
+                                courses && courses.slice(9, 16).map(item => {
                                     return <div key={item?._id} className="card card-compact mx-1 md:mx-3 my-3 bg-base-100 shadow-xl">
-                                        <figure><img src={item.imageLink} style={{ width: '100%', height: '200px' }} alt="Shoes" /></figure>
+                                        <figure><img src={item?.image} style={{ width: '100%', height: '200px' }} alt="Shoes" /></figure>
                                         <div className="card-body">
                                             <h2 className=" font-semibold">{item?.courseName}</h2>
                                             <div className="flex justify-between  font-semibold">
@@ -38,7 +38,7 @@ const PopularCourse = () => {
                                             </div>
                                             <div className="card-actions justify-end ">
                                                 <button className="btn btn-success hover:bg-green-700  text-white btn-xs ">More Info</button>
-                                                <button className="btn btn-success text-white btn-xs">Enroll</button>
+                                                <button className="btn btn-success text-white btn-xs">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
