@@ -7,11 +7,15 @@ import { PiOfficeChairThin } from "react-icons/pi";
 import { BsCart } from "react-icons/bs";
 import img1 from "../../assets/catchdiv.png"
 import { BiDislike, BiLike, BiSolidLike } from "react-icons/bi";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { toast } from "react-toastify";
+
 
 
 const ClassDetails = () => {
     const { id } = useParams();
-
+    const { user } = useContext(AuthContext)
     const { isAdmin } = useAdmin();
     const { data: course = {} } = useQuery({
         queryKey: ["classes", id],
@@ -20,7 +24,20 @@ const ClassDetails = () => {
             return res.data
         }
     })
-    console.log(course);
+    const addToCart = (course) => {
+        if (!user) {
+            toast("Login first for adding to cart.")
+            return navigate("/login")
+        }
+        course.email = user?.email
+        axios.post("http://localhost:5000/carts", { course })
+            .then(res => {
+                if (res.data.insertedId) {
+                    return toast.success(`${course?.courseName} has been added to cart.`)
+                }
+            })
+
+    }
 
 
     return (
@@ -60,7 +77,7 @@ const ClassDetails = () => {
                             </div>
                             <div className="w-full">
 
-                                <button disabled={course.availableSeat === 0 || isAdmin} className=" btn hover:border-b-2 border-indigo-500 w-full  btn-sm hover:text-indigo-800"> <BsCart className="inline " />
+                                <button onClick={() => addToCart(course)} disabled={course.availableSeat === 0 || isAdmin?.admin} className=" btn hover:border-b-2 border-indigo-500 w-full  btn-sm hover:text-indigo-800"> <BsCart className="inline " />
                                     Add to Cart</button>
                             </div>
 

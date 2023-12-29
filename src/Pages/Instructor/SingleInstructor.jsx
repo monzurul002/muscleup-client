@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const SingleInstructor = ({ instructor }) => {
     return (
 
-        <div key={instructor._id} className="grid grid-cols-1 py-2 md:grid-cols-3  w-full  md:w-10/12 mx-auto">
-            <div className="card w-72 md:w-80 h-80 my-4 px-2  hover:bg-slate-200 bg-slate-100  shadow-xl">
+        <div key={instructor._id} className="grid grid-cols-1  py-2 md:grid-cols-3  w-full  md:w-10/12 mx-auto">
+            <div className="card w-72 md:w-80 h-80 my-4 px-2 pt-2  hover:bg-slate-100 bg-white  shadow-xl">
 
-                <figure className="px-5 pt-5 bg-base-200 " >
-                    <img src={instructor.image} alt="Shoes" className="rounded-full w-60 pt-4 h-44" />
+                <figure className="px-5 pt-5 bg-base-100 " >
+                    <img src={instructor.image} alt="Shoes" className="rounded-full w-60 pt-12 h-44" />
                 </figure>
 
                 <div className="py-3 items-center text-center">

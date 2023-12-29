@@ -4,9 +4,32 @@ import useCourses from "../../../hooks/useCourses";
 import Slide from 'react-reveal/Slide';
 import { CiStopwatch } from "react-icons/ci";
 import { LuGraduationCap } from "react-icons/lu";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProviders";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const PopularCourse = () => {
-    const { courses } = useCourses()
+    const { courses } = useCourses();
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate()
+    const handleAddToCart = async (course) => {
+        if (!user) {
+            toast("Login first for adding to cart.")
+            return navigate("/login")
+        }
+        course.email = user?.email
+        await axios.post("http://localhost:5000/carts", { course })
+            .then(res => {
+                if (res.data.insertedId) {
+                    return toast.success(`${course?.courseName} has been added to cart.`)
+                }
+            })
+    }
+
+
+
     return (
         <Slide bottom>
             <div>
@@ -15,14 +38,14 @@ const PopularCourse = () => {
                 <div className="grid grid-cols-1 md:grid-cols-8">
                     <div className="col-span-7">
                         <div style={{
-                            // backgroundImage: `url(${bg})`, backgroundRepeat: "no-repeat"
+
                         }} className="grid grid-cols-1 py-3  md:grid-cols-3 px-5 md:px-14">
                             {
-                                courses && courses.slice(9, 16).map(item => {
+                                courses && courses.slice(0, 6).map(item => {
                                     return <div key={item?._id} className="card card-compact mx-1 md:mx-3 my-3 bg-base-100 shadow-xl">
                                         <figure><img src={item?.image} style={{ width: '100%', height: '200px' }} alt="Shoes" /></figure>
                                         <div className="card-body">
-                                            <h2 className=" font-semibold">{item?.courseName}</h2>
+                                            <h2 className=" text-xl font-semibold">{item?.courseName}</h2>
                                             <div className="flex justify-between  font-semibold">
                                                 <p><CiStopwatch className="inline" /> {item?.duration}</p>
                                                 <p><LuGraduationCap className="inline mb-1 mr-1" />{item?.enrolledStudents} Students</p>
@@ -37,8 +60,9 @@ const PopularCourse = () => {
                                                 </div>
                                             </div>
                                             <div className="card-actions justify-end ">
-                                                <button className="btn btn-success hover:bg-green-700  text-white btn-xs ">More Info</button>
-                                                <button className="btn btn-success text-white btn-xs">Add to Cart</button>
+
+                                                <Link to={`/classes/${item?._id}`} > <button className="btn btn-success hover:bg-green-700  text-white btn-xs ">More Info</button></Link>
+                                                <button onClick={() => handleAddToCart(item)} className="btn btn-success text-white btn-xs">Add to Cart</button>
                                             </div>
                                         </div>
                                     </div>
@@ -48,9 +72,9 @@ const PopularCourse = () => {
 
                         </div>
                     </div>
-                    <div className="col-span-1 hidden md:block mt-7">
-                        <img className="animate-pulse" src={ad} alt="col-span-1" />
-                        <h1 className="text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum exercitationem ab nam, reprehenderit dolores nemo ullam repudiandae magnam quidem? Consectetur?</h1>
+                    <div className="col-span-1 hidden shadow-md md:block mt-7">
+                        <img className="animate-pulse w-full" src={ad} alt="col-span-1" />
+                        <p className="text-slate-600 font-semibold pt-2  ">In simple terms: Learning is a lifelong process of transforming information and experience into knowledge, skills, and behaviours</p>
                     </div>
                 </div>
             </div>

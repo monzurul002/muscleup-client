@@ -48,7 +48,7 @@ const Chart2 = () => {
     ];
 
     return (
-        <div className="bg-white w-full pt-4 mt-4">
+        <div className="bg-white w-full pt-4 mt-4 overflow-hidden">
             <h3 className="text-xl font-bold pt-2 ml-3 py-2">Exam grade Statictics</h3>
 
             <AreaChart

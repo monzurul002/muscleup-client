@@ -13,11 +13,11 @@ import PrivateRoute from "./PrivateRoute.jsx";
 import MyClass from "../Pages/Instructor/MyClass.jsx";
 import ManageClass from "../Pages/AdminDashboard/ManageClass.jsx";
 import ManageUsers from "../Pages/AdminDashboard/ManageUsers.jsx";
-import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard.jsx";
 import InstructorDetails from "../Pages/Instructor/InstructorDetails.jsx";
 import ClassDetails from "../Pages/ClassDetails/ClassDetails.jsx";
 import MyProfile from "../Pages/MyProfile/MyProfile.jsx";
 import StudentDashboard from "../Pages/StudentDashboard/StudentDashboard.jsx";
+import DashboardUi from "../Pages/AdminDashboard/DashboardUi.jsx";
 
 
 const router = createBrowserRouter([
@@ -85,8 +85,8 @@ const router = createBrowserRouter([
                 element: <AddClass></AddClass>
             },
             {
-                path: "admindashboard",
-                element: <AdminDashboard></AdminDashboard>
+                path: "dashboardui",
+                element: <DashboardUi></DashboardUi>
             },
             {
                 path: "studentdashboard",

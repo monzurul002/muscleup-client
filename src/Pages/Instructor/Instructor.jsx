@@ -15,7 +15,7 @@ const Instructor = () => {
 
 
     return (
-        <div className="text-center">
+        <div className="text-center bg-base-200">
             <img className="w-full h-80" src={cover} alt="" />
             <button className="text-center btn text-white hover:bg-slate-900 bg-green-700 mt-5 py-2">All Instructor</button>
             <div className="grid gird-cols-1 md:grid-cols-3 w-11/12 mx-auto cursor-pointer">

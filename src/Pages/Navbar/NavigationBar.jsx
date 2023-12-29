@@ -5,19 +5,26 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { GiShoppingBag } from "react-icons/gi";
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const { carts } = useCart()
+    const { carts } = useCart();
+    const { isAdmin } = useAdmin()
+    console.log(isAdmin);
     const navItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructors</Link></li>
         <li><Link to="/courses">Courses</Link></li>
-        <li><Link to="/dashboard/admindashboard">Dashboard </Link></li>
+
+        {
+            isAdmin?.admin || isAdmin?.instructor ? <li><Link to="/dashboard/dashboardUi">Dashboard </Link></li> : <li><Link to="/dashboard/studentdashboard">Dashboard </Link></li>
+        }
 
 
 
     </>
+
     return (
         // <nav className="w-11/12 z-30 fixed bg-opacity-75 top-0 max-w-screen-lg text-white bg-black mx-auto">
         <nav className=" z-30 bg-opacity-40 bg-black w-full  px-4 text-white fixed ">

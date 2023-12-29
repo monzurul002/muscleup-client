@@ -15,8 +15,9 @@ const Dashboard = () => {
     const { loading } = useContext(AuthContext);
     const { isAdmin, adminLoading } = useAdmin();
     const { isInstructor } = useInstructor();
-    console.log(isAdmin?.admin);
-    if (loading || adminLoading) {
+    console.log("from , dashbord");
+    if (adminLoading || loading) {
+
         return <Loading></Loading>
     }
 
@@ -39,7 +40,7 @@ const Dashboard = () => {
                         </div>
 
                         <li>
-                            <Link to={isAdmin?.admin ? `/dashboard/admindashboard` : `/dashboard/studentdashboard`}>
+                            <Link to={isAdmin?.admin ? `/dashboard/dashboardUi` : `/dashboard/studentdashboard`}>
                                 <MdDashboard className="text-xl" />
                                 Dashboard
                             </Link>
@@ -60,8 +61,6 @@ const Dashboard = () => {
                                             Manage Users</Link></li>
                                         <li><Link to="/dashboard/manageusers"><LuUserCog />
                                             Manage Users</Link></li>
-
-
 
                                     </>
 

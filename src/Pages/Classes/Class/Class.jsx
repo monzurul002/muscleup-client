@@ -19,6 +19,7 @@ const Class = ({ course }) => {
             navigate("/login")
             return toast.error("Login first.")
         }
+        course.email = user?.email
         axios.post("http://localhost:5000/carts", course)
             .then(result => {
                 if (result.data.insertedId) {
@@ -26,11 +27,9 @@ const Class = ({ course }) => {
                 }
             })
     }
-    const seeMoreInfo = (id) => {
 
-    }
     return (
-        <div key={course.id} className={`card w-96 ${course.availableSeat == 0 ? "bg-red-500 text-white" : "bg-base-100"}  shadow-xl`}>
+        <div key={course._id} className={`card w-96 ${course.availableSeat == 0 ? "bg-red-500 text-white" : "bg-base-100"} pt-2  shadow-xl`}>
             <figure className="px-10 pt-10">
                 <p className="absolute top-12 text-white rounded-md px-1 bg-secondary right-12">Offline</p>
                 <img style={{ width: "300px", height: "200px" }} src={course?.image} alt="Shoes" className="rounded-xl" />
@@ -45,12 +44,12 @@ const Class = ({ course }) => {
                     <div className="w-10 my-2 rounded-full">
                         <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                     </div>
-                    <p className="text-slate-600">By {course.instructorName}</p>
+                    <p className="text-slate-600">By {course?.instructorName}</p>
                     <p className="text-2xl font-bold text-slate-500">${course.price}</p>
                 </div>
                 <div className="flex justify-evenly px-5">
-                    <Link to={`/classes/${course?._id}`}  ><button onClick={() => seeMoreInfo(course?._id)} className="btn btn-sm bg-slate-300 text-slate-700"> <MdOutlineDescription /> More Info</button></Link>
-                    <button onClick={handleAddToCart} disabled={course.availableSeat === 0 || isAdmin} className=" btn hover:border-b-2 border-indigo-500 btn-sm hover:text-indigo-800"> <BsCart className="inline " />
+                    <Link to={`/classes/${course?._id}`}  ><button className="btn btn-sm bg-slate-300 text-slate-700"> <MdOutlineDescription /> More Info</button></Link>
+                    <button onClick={handleAddToCart} disabled={course?.availableSeat == 0 || isAdmin?.admin} className=" btn hover:border-b-2 border-indigo-500 btn-sm hover:text-indigo-800"> <BsCart className="inline " />
                         Add to Cart</button>
                 </div>
 

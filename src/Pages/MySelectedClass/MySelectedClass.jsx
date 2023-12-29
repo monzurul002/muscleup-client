@@ -4,7 +4,9 @@ import SelectedClass from "./SelectedClass";
 
 const MySelectedClass = () => {
     const { carts } = useCart();
+    console.log(carts);
     const total = carts.reduce((sum, curr) => {
+        console.log(curr.price, typeof curr.price);
         return sum + curr.price
     }, 0)
 
@@ -41,7 +43,8 @@ const MySelectedClass = () => {
                 <div className="bg-slate-200 w-11/12 p-4">
                     <div className="flex justify-between">
                         <h1 className="text-2xl">Total </h1>
-                        <p className="text-3xl">${total.toFixed(2)}</p>
+                        <p className="text-3xl">${parseInt(total)}</p>
+                        {/* <p className="text-3xl">${total?.toFixed(2)}</p> */}
                     </div>
                     <p>Shipping:$0 </p>
                     <Link to="/dashboard/checkout"> <button className="btn btn-primary w-full mt-8">Checkout</button></Link>

@@ -43,8 +43,8 @@ const StudentDashboard = () => {
             </div>
 
             {/* Active course */}
-            <h2 className="text-xl py-4 ml-8 text-cyan-600 font-bold">Active Course </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 px-5">
+            <h2 className="text-xl py-4 ml-6 text-cyan-600 font-bold">Active Course </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 px-2">
                 <div className="card w-80 bg-base-100 shadow-xl">
                     <figure className="px-5 pt-5">
                         <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
@@ -110,7 +110,9 @@ const StudentDashboard = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-4">
                 <div className="col-span-1 md:col-span-3">
-                    <Chart2></Chart2>
+                    <div className="px-3 rounded-lg">
+                        <Chart2></Chart2>
+                    </div>
                 </div>
                 <div className="col-span-1 md:col-span-1 ">
                     <div className=" md:w-64 w-11/12 mx-3 md:mx-auto  rounded-lg bg-base-100 shadow-xl">

@@ -1,0 +1,20 @@
+
+//this hook is not working 
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProviders";
+
+const { user } = useContext(AuthContext);
+
+const addToCartdb = (course) => {
+    if (!user) {
+        toast("Login first for adding to cart.");
+        return navigate("/login");
+    }
+    course.email = user?.email;
+    return axios.post("http://localhost:5000/carts", { course })
+    // .then(res => {
+    //     console.log(res);
+    // });
+};
+
+export default addToCartdb;

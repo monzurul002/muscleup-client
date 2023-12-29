@@ -13,11 +13,12 @@ import { TiMessages } from "react-icons/ti";
 import { IoMailUnreadOutline } from "react-icons/io5";
 import { MdMarkUnreadChatAlt } from "react-icons/md";
 
-const AdminDashboard = () => {
+const DashboardUi = () => {
     const [value, onChange] = useState(new Date());
     let date = new Date();
     const { user, logOut } = useContext(AuthContext);
-    const { isAdmin } = useAdmin()
+    const { isAdmin } = useAdmin();
+    console.log("from , Dashboard UI");
     return (
         <div className="bg-base-300 px-2  md:px-2">
             {/* navbar */}
@@ -48,10 +49,10 @@ const AdminDashboard = () => {
                         </div>
                         <ul tabIndex={0} className="mt-3 z-[1] p-1 shadow menu menu-sm dropdown-content text-slate-600 bg-base-100 rounded-box w-52">
                             <li className="py-1">
-                                <a className="justify-between">
+                                <Link to="/dashboard/myprofile" className="justify-between">
                                     Profile
                                     <span className="badge">New</span>
-                                </a>
+                                </Link>
                             </li>
                             <li className="p-1"><a>Settings</a></li>
                             <li><button onClick={logOut} className="mx-2 mb-2 btn bg-red-600 py-3 hover:bg-red-700 text-white">Log Out</button></li>
@@ -126,7 +127,7 @@ const AdminDashboard = () => {
                 </div>
                 <div className="col-span-8 md:col-span-2 mt-4 px-1 ">
                     {
-                        isAdmin?.admin === 'admin' ? <div>
+                        isAdmin?.admin ? <div>
                             <div className="flex justify-between px-2">
                                 <h3 className=" pb-3 font-bold">Course Instructor</h3>
                                 <button className=" text-indigo-500 font-semibold text-sm">See all</button>
@@ -190,4 +191,4 @@ const AdminDashboard = () => {
     );
 };
 
-export default AdminDashboard;
+export default DashboardUi;

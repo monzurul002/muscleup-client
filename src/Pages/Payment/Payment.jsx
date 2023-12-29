@@ -31,7 +31,8 @@ const Payment = () => {
                         <div className=" p-2">
                             <div className="flex justify-between">
                                 <h1 className="text-2xl">Total </h1>
-                                <p className="text-3xl">${total.toFixed(2)}</p>
+                                {/* <p className="text-3xl">${total.toFixed(2)}</p> */}
+                                <p className="text-3xl">${parseInt(total)}</p>
                             </div>
                             <p>Shipping:$0 </p>
                             <button className="btn btn-primary w-full mt-8">Complete Order</button>
