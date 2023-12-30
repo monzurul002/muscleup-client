@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import axios from "axios";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signOut, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
+
 
 const auth = getAuth(app)
 export const AuthContext = createContext(null)
@@ -27,6 +27,11 @@ const AuthProviders = ({ children }) => {
             displayName: name
         })
     }
+    //password reset
+    const resetPassword = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
+
     //googleSign in
     const provider = new GoogleAuthProvider()
     const googleSignIn = () => {
@@ -48,7 +53,8 @@ const AuthProviders = ({ children }) => {
         signInWithPassword,
         userProfileUpdate,
         googleSignIn,
-        logOut
+        logOut,
+        resetPassword
     }
 
     useEffect(() => {

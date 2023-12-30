@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
 
 
-
 const useCart = () => {
     const { user } = useContext(AuthContext)
     const { data: carts = [], refetch } = useQuery({
@@ -13,6 +12,8 @@ const useCart = () => {
             return res.data
         }
     })
+
+    console.log(carts);
 
     // const [carts, setCarts] = useState([])
     // useEffect(() => {

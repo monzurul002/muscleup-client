@@ -9,9 +9,9 @@ import useAdmin from "../../hooks/useAdmin";
 
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
-    const { carts } = useCart();
+    const { carts, refetch } = useCart();
     const { isAdmin } = useAdmin()
-    console.log(isAdmin);
+
     const navItem = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructors</Link></li>
@@ -88,6 +88,7 @@ const NavigationBar = () => {
                                     Register
                                 </Link>
                                 </button>
+
                             </div>
                                 :
                                 <div className="dropdown   dropdown-end">
@@ -98,13 +99,14 @@ const NavigationBar = () => {
                                     </div>
                                     <ul tabIndex={0} className="mt-3 z-[1] p-1 shadow menu menu-sm dropdown-content text-slate-600 bg-base-200 rounded-box w-52">
                                         <li className="py-1">
-                                            <a className="justify-between">
+                                            <Link to="/dashboard/myprofile" className="justify-between">
                                                 Profile
                                                 <span className="badge">New</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li className="p-1"><a>Settings</a></li>
                                         <li><button onClick={logOut} className="mx-2 mb-2 btn bg-red-600 py-3 hover:bg-red-700 text-white">Log Out</button></li>
+
                                     </ul>
                                 </div>
 

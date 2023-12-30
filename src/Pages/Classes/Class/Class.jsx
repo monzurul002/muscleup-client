@@ -20,7 +20,7 @@ const Class = ({ course }) => {
             return toast.error("Login first.")
         }
         course.email = user?.email
-        axios.post("http://localhost:5000/carts", course)
+        axios.post("http://localhost:5000/carts", { course })
             .then(result => {
                 if (result.data.insertedId) {
                     return toast.success("Item has been added to cart.")

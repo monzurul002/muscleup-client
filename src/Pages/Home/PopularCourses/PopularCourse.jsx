@@ -9,20 +9,24 @@ import { AuthContext } from "../../../Providers/AuthProviders";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import useCart from "../../../hooks/useCart";
 
 const PopularCourse = () => {
     const { courses } = useCourses();
     const { user } = useContext(AuthContext);
     const navigate = useNavigate()
+    //jst for refeth 
+    const { refetch } = useCart();
     const handleAddToCart = async (course) => {
         if (!user) {
             toast("Login first for adding to cart.")
             return navigate("/login")
         }
         course.email = user?.email
-        await axios.post("http://localhost:5000/carts", { course })
+        await axios.post("http://localhost:5000/carts", course)
             .then(res => {
                 if (res.data.insertedId) {
+                    refetch()
                     return toast.success(`${course?.courseName} has been added to cart.`)
                 }
             })

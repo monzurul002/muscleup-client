@@ -3,6 +3,10 @@ import cover from "../../assets/profilecover.png"
 import { AuthContext } from "../../Providers/AuthProviders";
 import { FaRegEdit } from "react-icons/fa";
 import ProfileEditForm from "../ProfileEditForm/ProfileEditForm";
+import useAdmin from "../../hooks/useAdmin";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { IoCloseCircleSharp } from "react-icons/io5";
 
 const MyProfile = () => {
     const { user } = useContext(AuthContext)
@@ -10,6 +14,17 @@ const MyProfile = () => {
     const deviceName = device[0]
     const version = device[1].split(".")[0]
     const [isEdit, setIsEdit] = useState(false)
+    const { isAdmin } = useAdmin();
+    const { data: userInfo = {}, refetch } = useQuery({
+        queryKey: ["users", user?.email],
+        queryFn: async () => {
+            const res = await axios.get(`http://localhost:5000/users/${user.email}`)
+            return res.data
+        }
+    })
+
+
+
 
     return (
         <div className="w-full  pb-10 bg-base-200">
@@ -28,8 +43,16 @@ const MyProfile = () => {
                     <div className="bg-white rounded-xl ">
                         <div className="">
                             <div className="pl-5 py-5 mt-8 ">
-                                <h2 className="text-cyan-700 text-xl font-bold">{user?.displayName}</h2>
-                                <p className="font-semibold text-slate-500">Admin</p>
+                                <h2 className="text-cyan-700 text-xl font-bold">{
+                                    userInfo?.name ? userInfo?.name :
+                                        user?.displayName}</h2>
+                                <p className="font-semibold text-slate-500">
+
+                                    Logged In as:   <span className="text-xl font-bold text-cyan-600"> {
+                                        isAdmin?.admin ? "Admin" : isAdmin?.instructor ? "Instructor" : "Student"
+                                    }
+                                    </span>
+                                </p>
                                 <p>{user?.email}</p>
                                 <p>Join Date:25 jan 2023</p>
                             </div>
@@ -40,7 +63,11 @@ const MyProfile = () => {
                 <div className="col-span-5 md:col-span-6 bg-white px-5 mt-8 mx-6">
                     <div className="flex justify-between items-center">
                         <h2 className="text-xl font-bold  text-cyan-700 my-6">My Profile</h2>
-                        <FaRegEdit onClick={() => setIsEdit(!isEdit)} className="text-2xl text-cyan-500" />
+                        <div>
+                            {!isEdit ? <FaRegEdit onClick={() => setIsEdit(!isEdit)} className="text-2xl text-cyan-500 cursor-pointer" /> :
+                                <IoCloseCircleSharp onClick={() => setIsEdit(!isEdit)} className="text-red-500 text-3xl cursor-pointer" />}
+                        </div>
+
 
                     </div>
                     {
@@ -48,7 +75,7 @@ const MyProfile = () => {
                             <div className="flex justify-between ">
                                 <div className="w-1/2 " >
                                     <p className="font-bold  text-slate-500">Full Name</p>
-                                    <h4 className="text-xl text-slate-600 font-bold">{user?.displayName}</h4>
+                                    <h4 className="text-xl text-slate-600 font-bold"> {userInfo?.name ? userInfo?.name : user?.displayName} </h4>
                                 </div>
                                 <div className="w-1/2 " >
                                     <p className="font-bold  text-slate-500">Email</p>
@@ -58,13 +85,13 @@ const MyProfile = () => {
                             </div>
                             <div className="w-1/2 py-4 " >
                                 <p className="font-bold  text-slate-500">Mobile Number</p>
-                                <h4 className=" text-slate-600 font-bold">0170000000</h4>
+                                <h4 className=" text-slate-600 font-bold">{userInfo.mobile}</h4>
                             </div>
                             <div className="py-5">
                                 <h2 className="text-xl font-bold  text-indigo-500">Device Activity</h2>
                                 <p className="text-slate-500 font-bold">Now logged In : {deviceName + version}</p>
                             </div>
-                        </div> : <ProfileEditForm></ProfileEditForm>
+                        </div> : <ProfileEditForm setIsEdit={setIsEdit} refetch={refetch} ></ProfileEditForm>
 
                     }
 
