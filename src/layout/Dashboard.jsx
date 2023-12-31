@@ -10,6 +10,7 @@ import { LuUserCog } from "react-icons/lu";
 import logo from "../assets/logo2.png"
 import Footer from "../Pages/Footer/Footer";
 
+import { TfiWrite } from "react-icons/tfi";
 
 const Dashboard = () => {
     const { loading } = useContext(AuthContext);
@@ -48,7 +49,7 @@ const Dashboard = () => {
                         {
                             isAdmin?.admin || isInstructor?.instructor ? (<>
                                 {isInstructor?.instructor === true && (
-                                    <><li><Link to="/dashboard/addclass"> <MdPostAdd />
+                                    <><li><Link to="/dashboard/addclass"> <MdPostAdd className="text-xl font-bold" />
                                         Add a Class</Link></li>
                                         <li><Link to="/dashboard/myclass"><FaBookReader />
 
@@ -57,8 +58,6 @@ const Dashboard = () => {
                                 {isAdmin?.admin === true && (
                                     <><li><Link to="/dashboard/manageclass"><MdMarkChatUnread />
                                         Manage class</Link></li>
-                                        <li><Link to="/dashboard/manageusers"><LuUserCog />
-                                            Manage Users</Link></li>
                                         <li><Link to="/dashboard/manageusers"><LuUserCog />
                                             Manage Users</Link></li>
 
@@ -70,10 +69,13 @@ const Dashboard = () => {
                                     My Courses</Link></li>
                                 <li><Link to="/dashboard/myprofile"> <FaUserEdit className="text-xl" />
                                     My Profile</Link></li>
+
                             </>
 
                         }
+                        <li><Link to="/dashboard/writeblog"> <TfiWrite className="text-md" />
 
+                            Write Blogs</Link></li>
                     </ul>
 
                 </div>

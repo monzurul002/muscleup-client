@@ -18,6 +18,8 @@ import ClassDetails from "../Pages/ClassDetails/ClassDetails.jsx";
 import MyProfile from "../Pages/MyProfile/MyProfile.jsx";
 import StudentDashboard from "../Pages/StudentDashboard/StudentDashboard.jsx";
 import DashboardUi from "../Pages/AdminDashboard/DashboardUi.jsx";
+import WriteBlog from "../Pages/WiteBlog/WriteBlog.jsx";
+import Blogs from "../Pages/WiteBlog/Blogs.jsx";
 
 
 const router = createBrowserRouter([
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: "/courses",
                 element: <Classes></Classes>
+            },
+            {
+                path: "/blogs",
+                element: <Blogs></Blogs>
             },
             {
                 path: "/classes/:id",
@@ -92,6 +98,11 @@ const router = createBrowserRouter([
                 path: "studentdashboard",
                 element: <StudentDashboard></StudentDashboard>
             },
+            {
+                path: "writeblog",
+                element: <WriteBlog></WriteBlog>
+            },
+
 
             {
                 path: "myprofile",

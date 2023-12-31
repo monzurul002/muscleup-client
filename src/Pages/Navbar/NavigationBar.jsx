@@ -16,6 +16,7 @@ const NavigationBar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor">Instructors</Link></li>
         <li><Link to="/courses">Courses</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
 
         {
             isAdmin?.admin || isAdmin?.instructor ? <li><Link to="/dashboard/dashboardUi">Dashboard </Link></li> : <li><Link to="/dashboard/studentdashboard">Dashboard </Link></li>
