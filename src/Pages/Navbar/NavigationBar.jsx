@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
-import { FaRegUser } from "react-icons/fa6";
+import { FaArrowRightLong, FaRegUser } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import { GiShoppingBag } from "react-icons/gi";
@@ -73,8 +73,68 @@ const NavigationBar = () => {
                 </div>
                 <div className="navbar-end ">
                     <div className="flex justify-center items-center  mr-2">
-                        <p><GiShoppingBag className="text-2xl font-bold" /> </p>
-                        <span className="mt-[-12px] ms-[-5px] inline-block">{carts.length}</span>
+                        <div className="dropdown dropdown-end">
+                            <div className="drawer drawer-end z-20">
+                                <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+
+                                {/* Page content here */}
+                                <label htmlFor="my-drawer-4" className="drawer-button  ">  <div className="flex cursor-pointer">
+                                    <p ><GiShoppingBag className="text-2xl font-bold" /> </p>
+                                    <span className="mt-[-12px] ms-[-5px]   inline-block">{carts.length}</span>
+                                </div></label>
+
+                                <div className="drawer-side mt-5 ">
+                                    <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
+                                    <ul className="menu p-1 w-96 min-h-full bg-white text-base-content">
+                                        {/* Sidebar content here */}
+                                        <h2 className="text-center text-xl font-bold ">Courses You have Puchesed.</h2>
+                                        {
+                                            carts.map(cart => {
+                                                return <div className="overflow-x-auto ">
+                                                    <table className="table">
+                                                        {/* head */}
+
+                                                        <tbody>
+                                                            {/* row 1 */}
+                                                            <tr>
+                                                                <th>
+
+                                                                </th>
+                                                                <td>
+                                                                    <div className="flex items-center gap-3">
+                                                                        <div className="avatar">
+                                                                            <div className="mask mask-squircle w-12 h-12">
+                                                                                <img src={cart?.image
+                                                                                } alt="" />
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    {cart.courseName}
+
+                                                                </td>
+                                                                <td>
+                                                                </td>
+                                                                <th className="ml-2 cursor-pointer font-bold text-lg">
+                                                                    <td><FaArrowRightLong />
+                                                                    </td>
+                                                                </th>
+                                                            </tr>
+                                                        </tbody>
+
+
+                                                    </table>
+                                                </div>
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                     <div className="hidden lg:inline ">
 

@@ -7,12 +7,15 @@ import { BsCart } from "react-icons/bs";
 import { MdOutlineDescription, MdOutlineMail } from "react-icons/md";
 import axios from "axios";
 import useAdmin from "../../../hooks/useAdmin";
+import useCart from "../../../hooks/useCart";
 
 const Class = ({ course }) => {
     const { user } = useContext(AuthContext);
     const { isAdmin } = useAdmin()
     const navigate = useNavigate()
+    const { refetch } = useCart()
     course.email = user?.email;
+
     const handleAddToCart = () => {
 
         if (!user) {
@@ -20,9 +23,10 @@ const Class = ({ course }) => {
             return toast.error("Login first.")
         }
         course.email = user?.email
-        axios.post("http://localhost:5000/carts", { course })
+        axios.post("http://localhost:5000/carts", course)
             .then(result => {
                 if (result.data.insertedId) {
+                    refetch()
                     return toast.success("Item has been added to cart.")
                 }
             })

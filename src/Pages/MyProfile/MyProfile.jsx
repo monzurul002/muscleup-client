@@ -53,8 +53,11 @@ const MyProfile = () => {
                                     }
                                     </span>
                                 </p>
-                                <p>{user?.email}</p>
-                                <p>Join Date:25 jan 2023</p>
+                                <div className="text-md text-slate-500">
+                                    <p>{user?.email}</p>
+                                    <p>City: {userInfo?.city}</p>
+                                    <p>Join Date:25 jan 2023</p>
+                                </div>
                             </div>
 
                         </div>
