@@ -1,8 +1,59 @@
-# React + Vite
+# Muscle Up
+## Full stack Online course selling website.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Login Info:
 
-Currently, two official plugins are available:
+> #### admin
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+monzurulislam999@gmail.com
+```
+> ### Password
+
+```bash
+Pa$$w0rd!
+```
+> #### Instructor
+
+```bash
+risba@gmail.com
+```
+> ### Password
+
+```bash
+Pa$$w0rd!
+```
+
+---
+
+## The following things in this project:
+
+- Home
+- Dashboard
+- Add Items
+- Manage Items
+- My Items
+- Login
+- SignUp
+- Blogs
+- Footer
+- Other's data.
+
+---
+
+### You can see me here.. [Click Me](https://muscleup-5021e.web.app/)
+
+### Muscle up server Code.. [Click Here](https://github.com/monzurul002/muscleup-server)
+
+
+## The following open source packages are used in this project:
+
+- React JS v18
+- Tailwind CSS
+- Daisy UI
+- React Router DOM v6
+- React Icons
+- quils js
+- other's npm package
+---
+

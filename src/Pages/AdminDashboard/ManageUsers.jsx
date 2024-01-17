@@ -19,7 +19,7 @@ const ManageUsers = () => {
             confirmButtonText: `Yes, make him/her ${role}!`
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.put(`https://muscleup-server.vercel.app/users/${id}`, { role })
+                axios.put(`http://localhost:5000/users/${id}`, { role })
                     .then(res => {
                         if (res.data.modifiedCount > 0) {
                             refetch()

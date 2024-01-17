@@ -16,7 +16,7 @@ const Dashboard = () => {
     const { loading } = useContext(AuthContext);
     const { isAdmin, adminLoading } = useAdmin();
     const { isInstructor } = useInstructor();
-    console.log("from , dashbord");
+
     if (adminLoading || loading) {
 
         return <Loading></Loading>
@@ -35,7 +35,7 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-64 min-h-full font-bold  text-slate-600 bg-slate-100 ">
-                        {/* <ul className="menu p-4 w-64 min-h-full font-bold text-white bg-gradient-to-b from-[#9263de]  to-blue-500  "> */}
+
                         <div className="">
                             <Link to="/"><img className="w-2/3" src={logo} alt="" /></Link>
                         </div>

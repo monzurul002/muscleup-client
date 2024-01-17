@@ -27,7 +27,7 @@ const AddClass = () => {
         formData.append("availableSeat", availableSeat);
         formData.append("price", price);
 
-        axios.post('https://muscleup-server.vercel.app/classes', formData)
+        axios.post('http://localhost:5000/classes', formData)
             .then(res => {
                 if (res.data.insertedId) {
                     e.target.reset()

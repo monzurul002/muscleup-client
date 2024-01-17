@@ -47,7 +47,7 @@ const StudentDashboard = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 px-2">
                 <div className="card w-80 bg-base-100 shadow-xl">
                     <figure className="px-5 pt-5">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+                        <img src="https://1.bp.blogspot.com/-pdqcVeIQp64/XDX7TzdRdcI/AAAAAAAAM8E/ZmGuB6caZqIGmEflGHcj3zgXJJrmqRLdgCLcBGAs/w1200-h630-p-k-no-nu/Free%2BCourses%2Bto%2Blearn%2BJavaScript.jpg" alt="Shoes" className="rounded-xl" />
                     </figure>
                     <div className="card-body ">
                         <h2 className="card-title">Javascript you need to know.</h2>
@@ -61,13 +61,15 @@ const StudentDashboard = () => {
                             <div className="radial-progress" style={{ "--value": "70", "--size": "3rem", "--thickness": "2px" }} role="progressbar">70%</div>
                         </div>
                         <div className="">
-                            <button className="btn bg-base-300 mt-2 w-full">Continue</button>
+                            <button className="btn mt-4 bg-green-500 text-white (condition) {
+                                
+                            } w-full">Continue</button>
                         </div>
                     </div>
                 </div>
                 <div className="card w-80 bg-base-100 shadow-xl">
                     <figure className="px-5 pt-5">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+                        <img src="https://eduguide.co.in/wp-content/uploads/2020/03/ggti_2.jpg" alt="Shoes" className="rounded-xl" />
                     </figure>
                     <div className="card-body ">
                         <h2 className="card-title">Networking Methods</h2>
@@ -81,14 +83,14 @@ const StudentDashboard = () => {
                             <div className="radial-progress" style={{ "--value": "30", "--size": "3rem", "--thickness": "2px" }} role="progressbar">30%</div>
                         </div>
                         <div className="mt-7">
-                            <button className="btn bg-base-300 mt-2 w-full">Continue</button>
+                            <button className="btn bg-green-500 text-white  mt-2 w-full">Continue</button>
                         </div>
                     </div>
                 </div>
 
                 <div className="card w-80 bg-base-100 shadow-xl">
                     <figure className="px-5 pt-5">
-                        <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+                        <img src="https://5.imimg.com/data5/SELLER/Default/2023/1/BB/MM/EE/16435775/python-training-service.png" alt="Shoes" className="rounded-xl" />
                     </figure>
                     <div className="card-body ">
                         <h2 className="card-title">Python Course </h2>
@@ -102,7 +104,7 @@ const StudentDashboard = () => {
                             <div className="radial-progress" style={{ "--value": "100", "--size": "3rem", "--thickness": "2px" }} role="progressbar">100%</div>
                         </div>
                         <div className="mt-7">
-                            <button className="btn bg-base-300 mt-2 w-full">Continue</button>
+                            <button className="btn bg-green-500 text-white  mt-2 w-full">Continue</button>
                         </div>
                     </div>
                 </div>

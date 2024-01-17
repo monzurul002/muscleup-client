@@ -18,7 +18,7 @@ const DashboardUi = () => {
     let date = new Date();
     const { user, logOut } = useContext(AuthContext);
     const { isAdmin } = useAdmin();
-    console.log("from , Dashboard UI");
+
     return (
         <div className="bg-base-300 px-2  md:px-2">
             {/* navbar */}

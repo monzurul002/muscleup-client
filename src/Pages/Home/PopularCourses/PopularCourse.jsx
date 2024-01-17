@@ -50,14 +50,14 @@ const PopularCourse = () => {
                                         <figure><img src={item?.image} style={{ width: '100%', height: '200px' }} alt="Shoes" /></figure>
                                         <div className="card-body">
                                             <h2 className=" text-xl font-semibold">{item?.courseName}</h2>
-                                            <div className="flex justify-between  font-semibold">
-                                                <p><CiStopwatch className="inline" /> {item?.duration}</p>
-                                                <p><LuGraduationCap className="inline mb-1 mr-1" />{item?.enrolledStudents} Students</p>
+                                            <div className="flex justify-between gap-20  font-semibold">
+                                                <p><CiStopwatch className="inline" /> {item?.duration ? item?.duration : "Around 6 months."}</p>
+                                                <p><LuGraduationCap className="inline mb-1 mr-1" />{item?.enrolledStudents ? item?.enrolledStudents : "2282"} </p>
                                             </div>
                                             <div className="flex w-full  justify-between items-center">
                                                 <div className="w-1/2" >
-                                                    <img title={item?.instructorName} className="w-10 rounded-full h-10" src={item.authorImage} alt="" />
-                                                    <p className="font-semibold">Instructor:  {item?.instructorName} </p>
+                                                    <img title={item?.instructorName} className="w-10 rounded-full h-10" src={item.authorImage ? item.authorImage : "https://img1.pnghut.com/21/10/7/s1X3prmxwm/frame-flower-tree-heart-watercolor.jpg"} alt="" />
+                                                    <p className="font-semibold"> {item?.instructorName} </p>
                                                 </div>
                                                 <div>
                                                     <p className="font-bold w-1/2 text-xl ml-2">${item?.price}</p>
