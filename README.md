@@ -1,5 +1,8 @@
 # Muscle Up
 ## Full stack Online course selling website.
+### Live link.. [Click Me](https://muscleup-5021e.web.app/)
+
+### Muscle up server Code.. [Click Here](https://github.com/monzurul002/muscleup-server)
 
 ### Login Info:
 
@@ -40,10 +43,6 @@ Pa$$w0rd!
 - Other's data.
 
 ---
-
-### You can see me here.. [Click Me](https://muscleup-5021e.web.app/)
-
-### Muscle up server Code.. [Click Here](https://github.com/monzurul002/muscleup-server)
 
 
 ## The following open source packages are used in this project:
